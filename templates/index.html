@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Collaborative Code Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Include Socket.IO and Ace Editor from CDN (without integrity attributes) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Collaborative Code Editor</h1>
+      <p class="instruction">
+        Code in real time with others – see their cursors and chat as you work!
+      </p>
+      <!-- Editor Container for Ace Editor -->
+      <div id="editor" style="height: 400px; width: 100%;">{{ text }}</div>
+
+      <!-- Run Code Button & Output Area -->
+      <button id="run-code">Run Code</button>
+      <div id="output" class="output">Output will appear here...</div>
+
+      <!-- Chat Panel -->
+      <div id="chat-panel">
+        <h2>Chat</h2>
+        <div id="chat-box">
+          {% for chat in chats %}
+            <p class="chat-message"><strong>{{ chat.username }}:</strong> {{ chat.message }}</p>
+          {% endfor %}
+        </div>
+        <form id="chat-form">
+          <input type="text" id="username" placeholder="Your name" required>
+          <input type="text" id="chat-input" placeholder="Type a message" required>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    <!-- Link to external JavaScript file -->
+    <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+  </body>
+</html>
+
+
