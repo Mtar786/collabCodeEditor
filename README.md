@@ -24,31 +24,13 @@
 ```bash
 git clone https://github.com/YOUR-GITHUB-USERNAME/collab-code-editor.git
 cd collab-code-editor
-Create a Virtual Environment
-bash
-Copy
-Edit
+## Create a Virtual Environment
 python -m venv venv
-Activate it:
-
-Windows:
-bash
-Copy
-Edit
-.\venv\Scripts\activate
-Mac/Linux:
-bash
-Copy
-Edit
-source venv/bin/activate
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
+# Activate it:
+Windows: .\venv\Scripts\activate
+Mac/Linux:source venv/bin/activate
+## Install Dependencies
 pip install -r requirements.txt
-4️⃣ Run the Server
-bash
-Copy
-Edit
+## Run the Server
 python app.py
 Visit http://127.0.0.1:5000/ in your browser
